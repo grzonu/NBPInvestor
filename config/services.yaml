@@ -5,9 +5,16 @@ services:
         autowire: false
         autoconfigure: true
         public: false 
-
+    app.nbp_helper:
+        class: App\Services\NbpApi
+        arguments: 
+           - "@eight_points_guzzle.client.nbp"
+    app.nbp_gold_analyzer:
+        class: App\Services\InvestmentAnalyzer
+        arguments: 
+           - "@app.nbp_helper"
     app.nbp_investor.command:
         class: App\Command\NbpBestInvestmentCommand
         lazy: true
-        arguments: 
-            - "@eight_points_guzzle.client.nbp"
+        arguments:
+            - "@app.nbp_gold_analyzer"

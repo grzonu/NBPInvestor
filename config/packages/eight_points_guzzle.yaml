@@ -1,0 +1,10 @@
+eight_points_guzzle:
+    clients:
+        nbp:
+            base_url: "http://api.nbp.pl"
+            options:
+                timeout: 30
+                headers:
+                    User-Agent: "NBPInvestor/1.0"
+                    Accept: "application/json"
+            plugin: ~

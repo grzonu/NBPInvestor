@@ -1,0 +1,13 @@
+parameters:
+
+services:
+    _defaults:
+        autowire: false
+        autoconfigure: true
+        public: false 
+
+    app.nbp_investor.command:
+        class: App\Command\NbpBestInvestmentCommand
+        lazy: true
+        arguments: 
+            - "@eight_points_guzzle.client.nbp"
